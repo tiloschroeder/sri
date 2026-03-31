@@ -21,6 +21,9 @@
     <!-- None -->
   </dependencies>
   <releases>
+    <release version="1.2.1" date="2026-03-31" min="2.6.0" max="2.x.x">
+      - Update Readme
+    </release>
     <release version="1.2.0" date="2026-03-31" min="2.6.0" max="2.x.x">
       - Extension is now part of Sym8
       - PSR-12 formatting
