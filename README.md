@@ -24,7 +24,7 @@ See <https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
 3. Add the SRI data sources on pages that needs it.
 4. [Set the `integrity` attribute accordingly](#integrity-attribute)
 
-### `sri.xml` file {#srixml-file}
+### `sri.xml` file
 
 This file must contains a list of all files where the integrity hash needs to be computed. The file must follow this schema:
 
@@ -38,7 +38,7 @@ This file must contains a list of all files where the integrity hash needs to be
 
 File path are relative to the `DOCROOT` and must never start with a trailing slash. Hash algorithm can be specified globally by setting the `hash` attribute of the root level tag. Hash algorithm can also be specified on a a per file basis, using the same `hash` attribute.
 
-### `integrity` attribute {#integrity-attribute}
+### `integrity` attribute
 
 Using the provided data source, you can output the right value with this piece of either one of:
 
@@ -49,7 +49,7 @@ Using the provided data source, you can output the right value with this piece o
 <link href="/path/to/file.ext" integrity="{/data/sri/file[.='path/to/file.ext']/@integrity}" />
 ```
 
-### Data Source {#data-source}
+### Data Source
 
 The data source outputs some useful information. Also, any exception thrown in the data source execution process are logged into Symphony's logs.
 
