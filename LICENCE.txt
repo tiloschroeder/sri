@@ -5,6 +5,7 @@ follows:
 ----- begin license block -----
 
 Copyright 2016-2019 Deux Huit Huit inc.
+Copyright since 2026 Sym8
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

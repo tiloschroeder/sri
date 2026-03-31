@@ -1,37 +1,30 @@
 # Subresource Integrity
 
-> A simple way to compute base64 encoded sha (256, 384, 512) of assets files used in `link` and `script` tags.
-
-### SPECS
+A simple way to compute base64 encoded sha (256, 384, 512) of assets files used in `link` and `script` tags.
 
 - You specify the files in a xml file (`manifest/sri.xml`)
 - The results are in the provided [data source](#data-source)
 
 See <https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity> for more details on SRI.
 
-### REQUIREMENTS
+## Requirements
 
 - Symphony CMS version 2.6.0 and up (as of the day of the last release of this extension)
 
-### INSTALLATION
+## Installation
 
 - `git clone` / download and unpack the tarball file
 - Put into the extension directory
 - Enable/install just like any other extension
 
-You can also install it using the [extension downloader](http://symphonyextensions.com/extensions/extension_downloader/).
-Just search for `sri`.
+## How to use
 
-For more information, see <http://getsymphony.com/learn/tasks/view/install-an-extension/>
-
-### HOW TO USE
-
-1. Create the `manifest/sri.xml` file
+1. Create the file `manifest/sri.xml`
 2. [Fill it up](#srixml-file)
 3. Add the SRI data sources on pages that needs it.
 4. [Set the `integrity` attribute accordingly](#integrity-attribute)
 
-#### `sri.xml` file
+### `sri.xml` file {#srixml-file}
 
 This file must contains a list of all files where the integrity hash needs to be computed. The file must follow this schema:
 
@@ -45,7 +38,7 @@ This file must contains a list of all files where the integrity hash needs to be
 
 File path are relative to the `DOCROOT` and must never start with a trailing slash. Hash algorithm can be specified globally by setting the `hash` attribute of the root level tag. Hash algorithm can also be specified on a a per file basis, using the same `hash` attribute.
 
-#### `integrity` attribute
+### `integrity` attribute {#integrity-attribute}
 
 Using the provided data source, you can output the right value with this piece of either one of:
 
@@ -56,7 +49,7 @@ Using the provided data source, you can output the right value with this piece o
 <link href="/path/to/file.ext" integrity="{/data/sri/file[.='path/to/file.ext']/@integrity}" />
 ```
 
-#### Data Source
+### Data Source {#data-source}
 
 The data source outputs some useful information. Also, any exception thrown in the data source execution process are logged into Symphony's logs.
 
@@ -76,14 +69,10 @@ The data source outputs some useful information. Also, any exception thrown in t
     + `hit`: Integrity value found in cache
     + `disabled`: Cache is disabled
 
-#### Caching
+### Caching
 
 This extension uses Symphony's database driven cache provider in order to prevent reading each file and computing the hash on each request. The cache ttl is 30 days, but the data source checks the file modified time before using any value from the cache. If the file changed, the hash is updated.
 
-### LICENSE
+## License
 
 [MIT](http://deuxhuithuit.mit-license.org)
-
-Made with love in Montréal by [Deux Huit Huit](https://deuxhuithuit.com)
-
-Copyright (c) 2016
